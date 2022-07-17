@@ -1,0 +1,40 @@
+#+TITLE: display-sunrise-sunset.el
+#+AUTHOR: Jose G Perez Taveras
+
+Display sunrise sunset in the mode line 🌅.
+
+* Installation
+** Manual
+Download =display-sunrise-sunset.el= to your local directory.
+*** Git
+#+BEGIN_SRC shell
+  git clone https://github.com/josegpt/display-sunrise-sunset
+#+END_SRC
+*** Curl
+#+BEGIN_SRC shell
+  curl -s -o display-sunrise-sunset.el https://raw.githubusercontent.com/josegpt/display-sunrise-sunset/main/display-sunrise-sunset.el
+#+END_SRC
+* Configuration
+** use-package
+#+BEGIN_SRC emacs-lisp
+  (use-package display-sunrise-sunset
+    :custom
+    (calendar-latitude 40.71)
+    (calendar-longitude -74.00)
+    (calendar-location-name "New York, NY")
+    :config
+    (display-sunrise-sunset-mode))
+#+END_SRC
+** Manual
+Then add the =display-sunrise-sunset.el= path to your Emacs =load-path= and add the following to your Emacs config.
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'load-path "~/emacs/path")
+  (setq calendar-latitude 40.71
+        calendar-longitude -74.00
+        calendar-location-name "New York, NY")
+
+  ;; Interval in which display-sunrise-sunset.el will be updated.
+  ;; (setq display-sunrise-sunset-interval (* 60 60 24))
+
+  (display-sunsrise-sunset-mode 1)
+#+END_SRC
